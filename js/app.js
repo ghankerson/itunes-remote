@@ -32,22 +32,17 @@ var App = {
            
        },
        render : function(){
-       	   console.log(this);	
-           artist = this.song['artist'];
-           //name = this.song.get('name');
-           //album = this.song.get('album');
-           $.each(this.model.attributes, function(key, value){
-           	//console.log($(this.el).find('ul'));
-           	var li = $(this.template).clone().text(value);
-			$(this.el).find('ul').append(li);
-			$(this.el).html('foo');
-           });
-           	
-           
-              
+       		var template = this.template;
+     		$.each(this.song, function(key, value){
+              	var li = template.clone().text;
+     			console.log(this.song[key]);
+     			$(this.el).find('ul').append(li).end();
+     		}); 
+     		//$(this.el).html('foo');  	
+        }
         
-            
-       } 
     });
+        
+    
     
     
