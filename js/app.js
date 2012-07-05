@@ -6,42 +6,53 @@ $(function(){
 
 var App = {
     init : function(){
-    	model = new App.Song();
-    	model.fetch();
-        new App.View({ model: model});
+        model = new App.Song();
+        //model.fetch();
+        new App.View({
+            model: model
+        });
     }
 };
-    App.Song = Backbone.Model.extend({
-    	initialize: function(){
-  		},
-  		defaults: {
-    		name: 'Peg',
-    		album: 'Aja',
-    		artist: 'Steely Dan'
-  		},
-  		urlRoot: '/song'
-    });
+App.Song = Backbone.Model.extend({
+    initialize: function(){
+    },
+    defaults: {
+        name: 'Peg',
+        album: 'Aja',
+        artist: 'Steely Dan'
+    },
+    urlRoot: '/song'
+});
     
-    App.View = Backbone.View.extend({
-       el: '#display',
-       initialize: function(){
-           this.template = $('#list-template').children();
+App.View = Backbone.View.extend(
+{
+    
+    el: '#display ul',
+    initialize: function(){
+        var self = this;
+        this.template = $('#list-template').children();
+        model.bind('change', this.render, this);
+        this.model.fetch(); 
+          //self render
            
-           this.song = this.model.attributes;
-           this.render();  //self render
-           
-       },
-       render : function(){
-       		var template = this.template;
-     		$.each(this.song, function(key, value){
-              	var li = template.clone().text;
-     			console.log(this.song[key]);
-     			$(this.el).find('ul').append(li).end();
-     		}); 
-     		//$(this.el).html('foo');  	
-        }
+    },
+    render : function(){
+        //console.log(this.model.get('name'));
+        var name = this.model.get('name');
+        var artist = this.model.get('artist');
+        var album = this.model.get('album');
+        var time = this.model.get('time');
         
-    });
+        var lis = '<li>' + name + '</li><li>' + artist + '</li><li>' + album + '</li><li>' + time + '</li>';
+
+        _//.each(this.model.toJSON(), function(value, key){
+        //});
+        
+        console.log(lis);
+    $(this.el).html(lis);  	
+    }
+        
+});
         
     
     
