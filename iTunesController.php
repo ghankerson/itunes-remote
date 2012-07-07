@@ -19,7 +19,7 @@ class iTunesController {
   }
   
   public function prev() {
-    exec("osascript -e 'tell application \"iTunes\" to prev track'");
+    exec("osascript -e 'tell application \"iTunes\" to previous track'");
   }
   
   public function quieter() {

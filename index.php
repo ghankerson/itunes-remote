@@ -25,6 +25,17 @@ $app->get('/playpause', function(){
 });
 
 
+$app->get('/next', function(){
+  $controller = new iTunesController();
+  $controller->next();
+});
+
+$app->get('/prev', function(){
+  $controller = new iTunesController();
+  $controller->prev();
+});
+
+
 $app->run();
 
 ?>
