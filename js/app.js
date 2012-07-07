@@ -8,9 +8,10 @@ var App = {
     init : function(){
         model = new App.Song();
         //model.fetch();
-        new App.View({
+        var tunes = new App.View({
             model: model
         });
+        var controls = new App.ControllerView();
     }
 };
 App.Song = Backbone.Model.extend({
@@ -31,9 +32,9 @@ App.View = Backbone.View.extend(
     initialize: function(){
         var self = this;
         this.template = $('#list-template').children();
-        model.bind('change', this.render, this);
+        model.bind('change', this.render, this); // binding is very important to allow the view to read data returned from ajax call instead of just defaults
         this.model.fetch(); 
-          //self render
+    //self render
            
     },
     render : function(){
@@ -48,12 +49,22 @@ App.View = Backbone.View.extend(
         _//.each(this.model.toJSON(), function(value, key){
         //});
         
-        console.log(lis);
-    $(this.el).html(lis);  	
+        $(this.el).html(lis);  	
     }
-        
+
+    
 });
-        
-    
-    
-    
+
+App.ControllerView = Backbone.View.extend({
+    initialize: function(){
+        console.log('trying for click event');
+    },
+    events: {
+        'click #toggle': 'playpause'
+               
+    },
+   
+    playpause:  function(){
+        console.log('click event');
+    }
+});
