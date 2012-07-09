@@ -20,6 +20,9 @@ body {
     float: left;
     width: 200px;
     padding-top: 2.5em;
+    position: absolute;
+    top: -12px;
+    right: 20px;
 }
 #controller  ul{
     list-style-type: none;
@@ -31,21 +34,19 @@ body {
 }
 
 #display {
-    width: 568px;
+    position: relative;
+    width: 700px;
     float:left;
     margin-top: 2em;
-    background-image: linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
-    background-image: -o-linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
-    background-image: -moz-linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
-    background-image: -webkit-linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
-    background-image: -ms-linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
+    background-image: linear-gradient(bottom, rgb(0,0,0) 40%, rgb(61,61,61) 50%);
+    background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 40%, rgb(61,61,61) 50%);
 
     background-image: -webkit-gradient(
         linear,
         left bottom,
         left top,
-        color-stop(0.28, rgb(255,255,170)),
-        color-stop(0.53, rgb(253,255,204))
+        color-stop(0.4, rgb(0,0,0)),
+        color-stop(0.5, rgb(61,61,61))
         );
     padding: 1em 1em 2em 1em;
     height: 80px;
@@ -60,6 +61,7 @@ body {
     list-style: none;
     margin-top: 0;
     padding-top: 0.5em;
+    color: #FCFAE0;
 }
 
 #playlist_select {
