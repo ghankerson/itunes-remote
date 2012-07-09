@@ -11,7 +11,7 @@ $app = new Slim(array(
   
 
 $app->get('/', function(){
-  echo 'Click <a href="home.php"> here to get started</a>';
+  echo 'Click <a href="home.html"> here to get started</a>';
 });
 
 $app->get('/song', function(){
