@@ -29,6 +29,21 @@ class iTunesController {
   public function louder() {
     exec("osascript -e 'tell app \"iTunes\" to set sound volume to sound volume + 5'");
   }
+  
+  public function getAllPlayLists() {
+    $tmpstrs  = exec("osascript -e 'tell app \"iTunes\" to get name of every playlist'");
+    $tmpstrs = explode(",", $tmpstrs);
+    $newstrs = array();
+    foreach($tmpstrs  as $tmpstr){
+      $newstrs[] = array("name" => $tmpstr);
+
+    }
+    return json_encode($newstrs);
+  }
+  
+  public function changePlaylist($playlist_name){
+    
+  }
 }
 
 class PlayList {
@@ -40,8 +55,13 @@ class PlayList {
   }
   
   public function getSongs(){
-    return $this->songs;
+    $newarr = array();
+    foreach( $this->songs as $song ) {
+      $newarr[] = array( 'name' => $song );
+    }
+    return json_encode($newarr);
   }
+  
 }
 
 class Song {
@@ -66,6 +86,7 @@ class Song {
       'artist' => $this->artist,
       'album' => $this->album,
       'time' => $this->time,
+      'playlist' => $this->playlist,
     );
     return json_encode($json);
   }

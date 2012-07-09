@@ -7,7 +7,7 @@ body {
 }
 #container {
     margin: 0 auto;
-    width: 700px;
+    width: 800px;
     font-family: sans-serif;
     line-height: 1.5em;
     color: #666;
@@ -31,7 +31,7 @@ body {
 }
 
 #display {
-    width: 468px;
+    width: 568px;
     float:left;
     margin-top: 2em;
     background-image: linear-gradient(bottom, rgb(255,255,170) 43%, rgb(253,255,204) 58%);
@@ -60,6 +60,11 @@ body {
     list-style: none;
     margin-top: 0;
     padding-top: 0.5em;
+}
+
+#playlist_select {
+  padding: 5em 0;
+  clear: both;
 }
 
 #playlist {

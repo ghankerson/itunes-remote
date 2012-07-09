@@ -35,6 +35,16 @@ $app->get('/prev', function(){
   $controller->prev();
 });
 
+$app->get('/getallplaylists', function(){
+  $controller = new iTunesController();
+  echo $controller->getAllPlayLists();
+});
+
+$app->get('/getcurrentplaylist', function(){
+  $playlist = new PlayList();
+  echo $playlist->getSongs();
+});
+
 
 $app->run();
 
